@@ -7,7 +7,6 @@ $email = $_POST['email'];
 $phone = $_POST['phone'];
 $address = $_POST['address'];
 // echo "create complete";
-
 // echo $roll_no;
 // echo "<br>";
 

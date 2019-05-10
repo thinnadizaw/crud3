@@ -1,3 +1,28 @@
+<?php
+//including the database connection file
+include "conf/dbconfig.php";
+$id = $_GET['id'];
+$result = mysqli_query($conn,"SELECT * FROM users where id=$id");
+while($res = mysqli_fetch_array($result))
+{
+    $roll_no = $res['rollno'];
+    $name = $res['name'];
+    $email = $res['email'];
+    $phone = $res['phone'];
+    $address = $res['address'];
+
+}
+//echo $roll_no;
+//echo "<br>";
+//echo $name;
+//echo "<br>";
+//echo $email;
+//echo "<br>";
+//echo $phone;
+//echo "<br>";
+//echo $address;
+//echo "<br>";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,26 +66,24 @@
      <br><br>
 
      <caption>Internship Student listing</caption>
-     <div class="banner_mar"align="center">
-     <form action="query/store.php" method="post">
+     <div class="banner_mar" align="center">
+     <form action="query/update1.php" method="post">
         <label>Roll No</label><br>
-        <input type="text" name="rollno"><br>
+        <input type="text" name="rollno" value="<?php echo $roll_no;?>"><br>
         <label>Name</label><br>
-        <input type="text" name="name"><br>
+        <input type="text" name="name" value="<?php echo $name;?>"><br>
         <label>Email</label><br>
-        <input type="text" name="email"><br>
+        <input type="text" name="email" value="<?php echo $email;?>"><br>
         <label>Phone</label><br>
-        <input type="text" name="phone"><br>
+        <input type="text" name="phone" value="<?php echo $phone;?>"><br>
         <label>Address</label><br>
-        <input type="textarea" name="address"><br>
+        <input type="textarea" name="address" value="<?php echo $address;?>"><br>
         <br>
-        <button>
-            <a href="index.php">Back</a>
-        </button>
-       <input type="submit" value="Save"><br>
-       <input type="submit" value="Submit"><br>
+        
+       <input type="hidden" name="id" value="<?php echo $id;?>".>
+       <input type="submit"  name="update" value="Update"><br>
      </form>
-    
+    </div>
     <div class="footer">
     <p>well done</p>
     </div>
